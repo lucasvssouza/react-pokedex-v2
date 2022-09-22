@@ -1,4 +1,4 @@
-import { MainNavbar, PokemonNumber } from "../styles";
+import { MainNavbar, NB_H1, NB_PKNumber, NB_IMG, NB_P } from "../styles";
 import pokeball from "../image/pokeball.png";
 
 const Navbar = (props: any) => {
@@ -6,11 +6,11 @@ const Navbar = (props: any) => {
 
   return (
     <MainNavbar>
-      <h1>Pokédex</h1>
-      <PokemonNumber>
-        <img src={pokeball}></img>
-        <p>{pokemonNumber}</p>
-      </PokemonNumber>
+      <NB_H1>Pokédex</NB_H1>
+      <NB_PKNumber>
+        <NB_IMG src={pokeball} />
+        <NB_P>{pokemonNumber}</NB_P>
+      </NB_PKNumber>
     </MainNavbar>
   );
 };

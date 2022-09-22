@@ -24,7 +24,6 @@ export const ImageBackgroud = styled.img`
   right: 20%;
 `;
 
-
 export const MainNavbar = styled.div`
   margin-top: 3vh;
   height: 10vh;
@@ -40,13 +39,23 @@ export const MainNavbar = styled.div`
     rgba(0, 0, 0, 1) 50%,
     rgba(0, 0, 0, 1) 100%
   );
-
-  h1 {
-    margin-left: 20px;
-  }
 `;
 
-export const PokemonNumber = styled.div`
+export const NB_H1 = styled.h1`
+  margin-left: 20px;
+`;
+
+export const NB_IMG = styled.img`
+  height: 30px;
+  margin-right: 10px;
+`;
+
+export const NB_P = styled.p`
+  font-size: 28px;
+  color: white;
+`;
+
+export const NB_PKNumber = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,15 +66,6 @@ export const PokemonNumber = styled.div`
   border-radius: 10px;
   height 40px;
   width: 120px;
-
-  img{
-    height: 30px;
-    margin-right: 10px;
-  }
-
-  p{
-    font-size: 28px;
-  }
 `;
 
 /* Styles PokemonDetailedCard.tsx */
