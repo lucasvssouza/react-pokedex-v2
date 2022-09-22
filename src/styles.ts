@@ -11,8 +11,6 @@ export const Global = createGlobalStyle`
   html{
     height: 100vh;
     width: 100vw;
-    background: rgb(255,255,255);
-    background: linear-gradient(128deg, rgba(255,255,255,1) 38.75%, rgba(255,96,54,1) 38.75%, rgba(255,96,54,1) 55%, rgba(255,118,65,1) 55%, rgba(255,124,68,1) 100%);
   }
 `;
 
@@ -24,7 +22,7 @@ export const ImageBackgroud = styled.img`
   right: 20%;
 `;
 
-export const MainNavbar = styled.div`
+export const MainNavbar = styled.nav`
   margin-top: 3vh;
   height: 10vh;
   width: 100%;
@@ -67,3 +65,7 @@ export const NB_PKNumber = styled.div`
   height 40px;
   width: 120px;
 `;
+
+export const MainApp = styled.main`
+
+`
