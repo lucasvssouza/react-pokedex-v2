@@ -67,5 +67,7 @@ export const NB_PKNumber = styled.div`
 `;
 
 export const MainApp = styled.main`
-
+align-items: center;
+color:red;
+background-color: blue;
 `
