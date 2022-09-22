@@ -1,5 +1,6 @@
 import { Global } from "./styles";
 import { getPokedex } from "./services/api";
+import Main from "./components/Main";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
   return (
     <div>
       <Global />
-        <Navbar></Navbar>
+      <Navbar />
+      <Main />
     </div>
   );
 }
