@@ -2,9 +2,9 @@ import { MainApp } from "../styles";
 
 const Main = () => {
     return (
-        <div>
-            
-        </div>
+        <MainApp>
+            <div>dasdasd</div>
+        </MainApp>
     );
 };
 
