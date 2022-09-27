@@ -1,9 +1,10 @@
 import { MainApp } from "../styles";
+import ListPokemons from "./ListPokemons";
 
 const Main = () => {
     return (
         <MainApp>
-            <div>dasdasd</div>
+            <ListPokemons />
         </MainApp>
     );
 };

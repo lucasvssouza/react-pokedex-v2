@@ -71,3 +71,18 @@ align-items: center;
 color:red;
 background-color: blue;
 `
+
+export const Main_ListPK = styled.div`
+border: 2px solid black;
+display: grid;
+gap: 10px;
+grid-template-columns: repeat(4, 1fr);
+`
+
+export const PK_Card = styled.div`
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+`
