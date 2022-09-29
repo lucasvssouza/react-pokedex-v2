@@ -9,11 +9,13 @@ function App() {
   const [pkList, setPKList] = useState<Array<unknown>>();
   const [detail, setDetails] = useState<boolean>(false);
   const [pkDetail, setPKDetail] = useState<Array<unknown>>([])
+  const [pkCounter, setPKCount] = useState<number>();
 
   const localData = JSON.parse(localStorage.getItem("pk2")!);
 
   const pokedex = async () => {
     const resultPokedex = await getPokedex();
+    setPKCount(resultPokedex.length)
     if (localData !== null && localData !== undefined) {
       if (localData.length === 917) {
         console.log("Data OK!");
@@ -65,7 +67,7 @@ function App() {
   return (
     <PokedexContext.Provider value={[pkList,detail,pkDetail,openDetails,closeDetails]}>
       <Global />
-      <Navbar />
+      <Navbar pkCounter={pkCounter}/>
       <Main />
     </PokedexContext.Provider>
   );
