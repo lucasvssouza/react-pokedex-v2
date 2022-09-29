@@ -14,15 +14,7 @@ export const Global = createGlobalStyle`
   }
 `;
 
-export const ImageBackgroud = styled.img`
-  height: calc(((65vh+65vw) / 2));
-  position: absolute;
-  top: 35%;
-  transform: rotate(320deg);
-  right: 20%;
-`;
-
-export const MainNavbar = styled.nav`
+export const NavbarContainer = styled.nav`
   margin-top: 3vh;
   height: 10vh;
   width: 100%;
@@ -50,7 +42,7 @@ export const MainNavbar = styled.nav`
   }
 `;
 
-export const NB_PKNumber = styled.div`
+export const NBNumber = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
