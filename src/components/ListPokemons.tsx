@@ -1,21 +1,47 @@
-import { Main_ListPK } from "../styles";
-import { useContext } from "react";
-import PokemonCard from "./PokemonCard"
-
+import { MainListPK, PKSearch } from "../styles";
+import { useContext, useEffect } from "react";
+import PokemonCard from "./PokemonCard";
+import { useState } from "react";
 import { PokedexContext } from "../contexts/PokedexContext";
 
 const ListPokemons = () => {
-    const pokemon = useContext(PokedexContext)
+  const [pkList] = useContext(PokedexContext);
+  const [search, setSearch] = useState<string>();
+  const [list, setList] = useState([]);
 
-    console.log(pokemon)
+  const fillPokemon = () => {
+    if (search === "" || search === undefined || search === null) {
+      setList(pkList);
+    } else {
+      setList(
+        pkList.filter((p: any) =>
+          p.name.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }
+  };
 
-    return (
-        <Main_ListPK>
-            {pokemon && pokemon.map((pokemon:any, key:number)=>{
-              return <PokemonCard pk={pokemon}/>
-            })}
-        </Main_ListPK>
-    );
+  useEffect(() => {
+    fillPokemon();
+  });
+
+  return (
+    <div>
+      <div>
+        <PKSearch
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+      <MainListPK>
+        {list &&
+          list.map((pokemon: unknown, key: unknown) => {
+            return <PokemonCard pk={pokemon} key={key} />;
+          })}
+      </MainListPK>
+    </div>
+  );
 };
 
 export default ListPokemons;

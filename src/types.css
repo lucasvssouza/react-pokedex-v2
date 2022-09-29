@@ -1,0 +1,106 @@
+/* Type Pokémons */
+.Bug {
+  background-color: #b97fc9;
+  color: white;
+}
+
+.Dark {
+  background-color: #707070;
+  color: white;
+}
+
+.Dragon {
+  background: rgb(83, 164, 207);
+  background: linear-gradient(
+    180deg,
+    rgba(83, 164, 207, 1) 50%,
+    rgba(241, 110, 87, 1) 50%
+  );
+  color: white;
+}
+
+.Electric {
+  background-color: #eed535;
+  color: black;
+}
+
+.Fairy {
+  background-color: #fdb9e9;
+  color: black;
+}
+
+.Fighting {
+  background-color: #d56723;
+  color: white;
+}
+
+.Fire {
+  background-color: #fd7d24;
+  color: white;
+}
+
+.Flying {
+  background: rgb(61, 199, 239);
+  background: linear-gradient(
+    180deg,
+    rgba(61, 199, 239, 1) 50%,
+    rgba(189, 185, 184, 1) 50%
+  );
+  color: black;
+}
+
+.Ghost {
+  background-color: #7b62a3;
+  color: white;
+}
+
+.Grass {
+  background-color: #9bcc50;
+  color: black;
+}
+
+.Ground {
+  background: rgb(247, 222, 63);
+  background: linear-gradient(
+    180deg,
+    rgba(247, 222, 63, 1) 50%,
+    rgba(171, 152, 66, 1) 50%
+  );
+  color: black;
+}
+
+.Ice {
+  background-color: #51c4e7;
+  color: black;
+}
+
+.Normal {
+  background-color: #a4acaf;
+  color: black;
+}
+
+.Poison {
+  background-color: #b97fc9;
+  color: white;
+}
+
+.Psychic {
+  background-color: #f366b9;
+  color: white;
+}
+
+.Rock {
+  background-color: #a38c21;
+  color: white;
+}
+
+.Steel {
+  background-color: #9eb7b8;
+  color: black;
+}
+
+.Water {
+  background-color: #4592c4;
+  color: white;
+}
+/* Type Pokémons */

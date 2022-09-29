@@ -1,25 +1,45 @@
-import { get } from "http";
-import React, { useState } from "react";
-import { PK_Card } from "../styles";
+import {
+  PKCard,
+  PKCID,
+  PKCName,
+  PKCIMG,
+  PKCTypeContainer,
+  PKCType,
+} from "../styles";
+import "../types.css";
+import { useContext } from "react";
+import { PokedexContext } from "../contexts/PokedexContext";
 
 const PokemonCard = (props: any) => {
-  const { pk } = props;
+  const { pk, key } = props;
+  const [pkList, detail, pkDetail, openDetails] = useContext(PokedexContext);
 
-  const PK_IMG = (): any => {
-    return <img src={pk.sprites.animated}></img>;
+  const IMAGE = pk.sprites.large;
+
+  // This function is triggered if an error occurs while loading an image
+  const imageOnErrorHandler = (
+    event: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    event.currentTarget.src =
+      "https://developers.google.com/static/maps/documentation/streetview/images/error-image-generic.png";
+  };
+
+  const detailCard = () => {
+    console.log(pk);
+    openDetails(pk);
   };
 
   return (
-    <PK_Card>
-      <div>{pk.name}</div>
-      <div>
-        <PK_IMG />
-      </div>
-      <div>{pk.type.map((type:string)=>{
-        return <div>{type}</div>
-      })}</div>
-      <div>{pk.national_number}</div>
-    </PK_Card>
+    <PKCard key={key} onClick={detailCard}>
+      <PKCIMG src={IMAGE} onError={imageOnErrorHandler} />
+      <PKCID>{pk.national_number}</PKCID>
+      <PKCName>{pk.name}</PKCName>
+      <PKCTypeContainer>
+        {pk.type.map((type: string) => {
+          return <PKCType className={type}>{type}</PKCType>;
+        })}
+      </PKCTypeContainer>
+    </PKCard>
   );
 };
 
