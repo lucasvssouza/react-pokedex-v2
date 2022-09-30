@@ -1,25 +1,26 @@
 import { Global } from "./styles";
 import { getPokedex } from "./services/api";
-import Main from "./components/Main";
 import Navbar from "./components/Navbar";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 import { PokedexContext } from "./contexts/PokedexContext";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [pkList, setPKList] = useState<Array<unknown>>();
+  const [pkList, setPKList] = useState<Array<unknown>>([]);
   const [detail, setDetails] = useState<boolean>(false);
-  const [pkDetail, setPKDetail] = useState<Array<unknown>>([])
+  const [pkDetail, setPKDetail] = useState<Array<unknown>>([]);
   const [pkCounter, setPKCount] = useState<number>();
 
-  const localData = JSON.parse(localStorage.getItem("pk2")!);
+  const localList = JSON.parse(localStorage.getItem("pk2:list")!);
 
   const pokedex = async () => {
     const resultPokedex = await getPokedex();
-    setPKCount(resultPokedex.length)
-    if (localData !== null && localData !== undefined) {
-      if (localData.length === 917) {
+    setPKCount(resultPokedex.length);
+    if (localList !== null && localList !== undefined) {
+      if (localList.length === 917) {
         console.log("Data OK!");
-        setPKList(localData);
+        setPKList(localList);
       } else {
         try {
           console.log("Data Off!");
@@ -34,7 +35,7 @@ function App() {
           console.log(error);
         }
       }
-    } else if (localData === null || localData === undefined) {
+    } else if (localList === null || localList === undefined) {
       try {
         console.log("Data Off!");
         const promises = resultPokedex.map((pokemon: Array<unknown>) => {
@@ -50,25 +51,28 @@ function App() {
     }
   };
 
-  const openDetails = (pdata: Array<unknown>) =>{
+  const openDetails = (pdata: Array<unknown>) => {
     setPKDetail(pdata);
-    setDetails(true)
-  }
+    setDetails(true); 
+  };
 
-  const closeDetails = () =>{
-    setPKDetail([])
-    setDetails(false)
-  }
+  const closeDetails = () => {
+    setPKDetail([]);
+    setDetails(false);
+  };
 
   useEffect(() => {
     pokedex();
   }, []);
 
   return (
-    <PokedexContext.Provider value={[pkList,detail,pkDetail,openDetails,closeDetails]}>
+    <PokedexContext.Provider
+      value={[pkList, detail, pkDetail, openDetails, closeDetails]}
+    >
       <Global />
-      <Navbar pkCounter={pkCounter}/>
+      <Navbar pkCounter={pkCounter} />
       <Main />
+      <Footer />
     </PokedexContext.Provider>
   );
 }

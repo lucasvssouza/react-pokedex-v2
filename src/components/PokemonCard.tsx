@@ -25,7 +25,6 @@ const PokemonCard = (props: any) => {
   };
 
   const detailCard = () => {
-    console.log(pk);
     openDetails(pk);
   };
 

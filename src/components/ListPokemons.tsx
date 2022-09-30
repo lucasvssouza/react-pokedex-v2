@@ -1,4 +1,4 @@
-import { MainListPK, PKSearch } from "../styles";
+import { MainListPK, EmptyList, PKSearch } from "../styles";
 import { useContext, useEffect } from "react";
 import PokemonCard from "./PokemonCard";
 import { useState } from "react";
@@ -21,9 +21,24 @@ const ListPokemons = () => {
     }
   };
 
+  const RenderList = (): any => {
+    if (
+      list.length === 0 &&
+      search !== "" &&
+      search !== undefined &&
+      search !== null
+    ) {
+      return <EmptyList>Pokémon não encontrado...</EmptyList>;
+    }
+  };
+
   useEffect(() => {
     fillPokemon();
-  });
+  }, []);
+
+  useEffect(() => {
+    fillPokemon();
+  }, [search]);
 
   return (
     <div>
@@ -31,6 +46,7 @@ const ListPokemons = () => {
         <PKSearch
           type="text"
           value={search}
+          placeholder="Digite o nome do Pokémon..."
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
@@ -39,6 +55,7 @@ const ListPokemons = () => {
           list.map((pokemon: unknown, key: unknown) => {
             return <PokemonCard pk={pokemon} key={key} />;
           })}
+        <RenderList />
       </MainListPK>
     </div>
   );
