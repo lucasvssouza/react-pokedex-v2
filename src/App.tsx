@@ -29,7 +29,7 @@ function App() {
           });
           const data = await Promise.all(promises);
           setPKList(data);
-          localStorage.setItem("pk2", JSON.stringify(data));
+          localStorage.setItem("pk2:list", JSON.stringify(data));
           console.log("Data salvo no localStorage");
         } catch (error) {
           console.log(error);
@@ -43,7 +43,7 @@ function App() {
         });
         const data = await Promise.all(promises);
         setPKList(data);
-        localStorage.setItem("pk2", JSON.stringify(data));
+        localStorage.setItem("pk2:list", JSON.stringify(data));
         console.log("Data salvo no localStorage");
       } catch (error) {
         console.log(error);
