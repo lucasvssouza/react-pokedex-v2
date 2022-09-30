@@ -11,49 +11,24 @@ function App() {
   const [detail, setDetails] = useState<boolean>(false);
   const [pkDetail, setPKDetail] = useState<Array<unknown>>([]);
   const [pkCounter, setPKCount] = useState<number>();
-
-  const localList = JSON.parse(localStorage.getItem("pk2:list")!);
-
+  
   const pokedex = async () => {
     const resultPokedex = await getPokedex();
     setPKCount(resultPokedex.length);
-    if (localList !== null && localList !== undefined) {
-      if (localList.length === 917) {
-        console.log("Data OK!");
-        setPKList(localList);
-      } else {
-        try {
-          console.log("Data Off!");
-          const promises = resultPokedex.map((pokemon: Array<unknown>) => {
-            return pokemon;
-          });
-          const data = await Promise.all(promises);
-          setPKList(data);
-          localStorage.setItem("pk2:list", JSON.stringify(data));
-          console.log("Data salvo no localStorage");
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    } else if (localList === null || localList === undefined) {
-      try {
-        console.log("Data Off!");
-        const promises = resultPokedex.map((pokemon: Array<unknown>) => {
-          return pokemon;
-        });
-        const data = await Promise.all(promises);
-        setPKList(data);
-        localStorage.setItem("pk2:list", JSON.stringify(data));
-        console.log("Data salvo no localStorage");
-      } catch (error) {
-        console.log(error);
-      }
+    try {
+      const promises = resultPokedex.map((pokemon: Array<unknown>) => {
+        return pokemon;
+      });
+      const data = await Promise.all(promises);
+      setPKList(data);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const openDetails = (pdata: Array<unknown>) => {
     setPKDetail(pdata);
-    setDetails(true); 
+    setDetails(true);
   };
 
   const closeDetails = () => {
